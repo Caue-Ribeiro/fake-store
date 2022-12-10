@@ -8,4 +8,6 @@
 -   Sass
 -   Vite
 
-### Hope you enjoy it! To access, click here -> [Fake Store]()
+### Hope you enjoy it! To access, click here -> [Fake Store](https://caue-ribeiro.github.io/fake-store/)
+
+![Project-video](./public/img/store.gif)
