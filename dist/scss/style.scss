@@ -1,0 +1,288 @@
+@import './fontawesome.scss';
+@import './solid.scss';
+@import './regular.scss';
+@import './brands.scss';
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;500&display=swap&family=Satisfy&display=swap');
+
+$star: fa-content($fa-var-star);
+$signika: 'Signika Negative', sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.store__container {
+    .store__navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: black;
+        color: hsl(0, 0%, 100%);
+        font-family: 'Satisfy';
+
+        & span {
+            color: hsl(258, 100%, 37%);
+        }
+
+        & div > h1 {
+            font-size: 2em;
+        }
+
+        & ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            font-family: $signika;
+            padding: 20px 5px;
+
+            li {
+                cursor: pointer;
+            }
+
+            .fa-cart-shopping {
+                font-size: 1.2em;
+            }
+
+            .store__cartshopping::after {
+                content: attr(data-content);
+                position: absolute;
+                background-color: hsl(0, 100%, 50%);
+                right: -20px;
+                top: -12px;
+                width: 28px;
+                border-radius: 5px;
+                text-align: center;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: hsl(0, 0%, 100%);
+        }
+    }
+
+    .shop__container {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+
+        .shop__itens {
+            text-align: center;
+            border-radius: 0px 0px 10px 10px;
+            box-shadow: 0px 5px 5px hsl(0, 0%, 47%);
+            cursor: pointer;
+            font-family: $signika;
+            margin-bottom: 20px;
+
+            &:hover {
+                transform: scale(1.1);
+                transition: all 0.3s;
+            }
+
+            .shop__img {
+                border-radius: 10px;
+            }
+
+            .shop__itens-quantity {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100px;
+                margin: auto;
+                padding: 10px;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+        }
+
+        .shop__outter-star {
+            @include fa-icon;
+            @extend .fas;
+            position: relative;
+
+            &::before {
+                content: $star $star $star $star $star;
+                font-weight: 900;
+                color: hsl(0, 0%, 83%);
+            }
+        }
+        .shop__inner-star {
+            @include fa-icon;
+            @extend .fas;
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0%;
+            &::before {
+                content: $star $star $star $star $star;
+                font-weight: 900;
+                color: hsl(51, 100%, 50%);
+            }
+        }
+    }
+}
+
+.cart__items {
+    font-family: $signika;
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+
+    .items__card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        border: 1px solid hsl(0, 0%, 0%);
+        border-radius: 10px;
+        gap: 10px;
+        width: 300px;
+        padding: 5px;
+    }
+
+    .cart__itens-quantity {
+        display: flex;
+
+        gap: 5px;
+    }
+
+    .cart__img {
+        border-radius: 10px 0px 0px 10px;
+    }
+
+    .cart__itens-name {
+        word-break: break-all;
+    }
+
+    .cart__itens-quantity {
+        margin-top: 20px;
+        font-size: 1.2em;
+        font-weight: 900;
+    }
+
+    .cart__itens-quantity {
+        cursor: pointer;
+    }
+
+    .erase__cartItem {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: hsl(0, 0%, 0%);
+        color: white;
+        border-radius: 0px 8px 0px 0px;
+        margin-top: -0.2px;
+
+        padding: 2px;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: hsl(0, 0%, 20%);
+            transition: all 0.3s;
+        }
+    }
+}
+
+.cart__total-price {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+    font-family: $signika;
+    font-size: 1.5em;
+    align-items: center;
+    gap: 10px;
+
+    & span {
+        width: 150px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid hsl(0, 0%, 61%);
+        filter: drop-shadow(0px 5px 2px hsla(0, 0%, 0%, 0.678));
+    }
+}
+
+.cart__navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: hsl(0, 0%, 100%);
+    font-family: 'Satisfy';
+
+    & span {
+        color: hsl(258, 100%, 37%);
+    }
+
+    & div > h1 {
+        font-size: 2em;
+    }
+
+    & ul {
+        display: flex;
+        gap: 15px;
+        list-style: none;
+        font-family: $signika;
+        padding: 20px 5px;
+
+        li {
+            cursor: pointer;
+        }
+
+        .fa-cart-shopping {
+            font-size: 1.2em;
+        }
+
+        .store__cartshopping::after {
+            content: attr(data-content);
+            position: absolute;
+            background-color: hsl(0, 100%, 50%);
+            right: -20px;
+            top: -12px;
+            width: 28px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+@media (max-width: 1000px) {
+    .store__container {
+        .store__navbar > ul > li {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .store__container {
+        .shop__container {
+            display: grid;
+            grid-template-columns: repeat(2, 200px);
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .store__container {
+        .shop__container {
+            display: grid;
+            grid-template-columns: repeat(1, 200px);
+        }
+    }
+}
